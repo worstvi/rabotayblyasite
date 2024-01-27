@@ -1,4 +1,3 @@
-// script2.js
 document.addEventListener('DOMContentLoaded', () => {
   function sendEmailNotification(activity) {
     fetch('http://localhost:3000/send-notification', {
@@ -12,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!response.ok) {
           throw new Error(`Ошибка HTTP: ${response.status}`);
         }
+
         return response.json();
       })
       .then(data => console.log('Серверный ответ:', data))
