@@ -1,10 +1,9 @@
+// server.js
 const express = require('express');
 const cors = require('cors');
-const nodemailer = require('nodemailer');
 const app = express();
 
 app.use(cors()); // Разрешить все запросы
-app.use(express.json()); // Добавлено для правильного парсинга JSON в теле запроса
 
 app.post('/send-notification', (req, res) => {
   const { activity } = req.body;
@@ -38,9 +37,11 @@ function sendEmailNotification(activity) {
       console.log('Уведомление отправлено:', info.response);
     }
   });
-}
+} // <-- Закрывающийся фрагмент комментария
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Сервер слушает на порту ${PORT}`);
 });
+
+// <-- Лишний закрывающийся фрагмент комментария
