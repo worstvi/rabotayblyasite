@@ -1,11 +1,10 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+const cors = require('cors');
 const nodemailer = require('nodemailer');
-
 const app = express();
-const port = 3000; // Выберите подходящий порт
 
-app.use(bodyParser.json());
+app.use(cors());
+app.use(express.json()); // Добавлено для правильного парсинга JSON в теле запроса
 
 app.post('/send-notification', (req, res) => {
   const { activity } = req.body;
@@ -26,8 +25,8 @@ function sendEmailNotification(activity) {
   });
 
   const mailOptions = {
-    from: 'namlunsasha@gmail.com', // Ваша почта
-    to: 'musasim@list.ru', // Почта получателя
+    from: 'namlunsasha@gmail.com',
+    to: 'musasim@list.ru',
     subject: 'Уведомление о выборе',
     text: `Пользователь выбрал: ${activity}`,
   };
@@ -41,6 +40,7 @@ function sendEmailNotification(activity) {
   });
 }
 
-app.listen(port, () => {
-  console.log(`Сервер запущен на порту ${port}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Сервер слушает на порту ${PORT}`);
 });
