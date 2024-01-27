@@ -1,8 +1,9 @@
 function sendEmailNotification(activity) {
-  fetch('https://cors.bridged.cc/http://localhost:3000/send-notification', {
+  fetch('http://localhost:3000/send-notification', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
     },
     body: JSON.stringify({ activity }),
   })
