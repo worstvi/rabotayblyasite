@@ -3,7 +3,7 @@ const cors = require('cors');
 const nodemailer = require('nodemailer');
 const app = express();
 
-app.use(cors());
+app.use(cors()); // Разрешить все запросы
 app.use(express.json()); // Добавлено для правильного парсинга JSON в теле запроса
 
 app.post('/send-notification', (req, res) => {
