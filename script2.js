@@ -1,5 +1,6 @@
+// script2.js
 function sendEmailNotification(activity) {
-  fetch('https://cors-anywhere.herokuapp.com/http://localhost:3000/send-notification', {
+  fetch('https://cors.bridged.cc/http://localhost:3000/send-notification', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -14,4 +15,5 @@ function sendEmailNotification(activity) {
 function selectActivity(activity) {
   alert(`Выбрано: ${activity}`);
   sendEmailNotification(activity);
+  // Здесь вы можете добавить код для дополнительных действий, связанных с выбором деятельности.
 }
