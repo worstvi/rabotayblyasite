@@ -1,4 +1,3 @@
-// script2.js
 function sendEmailNotification(activity) {
   fetch('https://cors.bridged.cc/http://localhost:3000/send-notification', {
     method: 'POST',
@@ -7,8 +6,9 @@ function sendEmailNotification(activity) {
     },
     body: JSON.stringify({ activity }),
   })
-  .then(response => response.json())
-  .then(data => console.log('Серверный ответ:', data))
+  .then(response => {
+    console.log('Серверный ответ:', response);
+  })
   .catch(error => console.error('Ошибка отправки запроса:', error));
 }
 
